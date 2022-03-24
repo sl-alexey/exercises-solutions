@@ -1,0 +1,28 @@
+""""
+Подбрасываем монетку до трёх подрят выпадений
+"""
+
+%%time
+lib = ["решка", "орел"]
+nz = num = 0
+
+for n in range(1, 11):
+    print("проход", n)
+    s = ""
+    n = 0
+    while "OOO" not in s and "PPP" not in s:
+        n += 1
+        m = choice(lib)
+        if m == "решка":
+            t = "P"
+        elif m == "орел":
+            t = "O"
+        s = s + t
+
+        print(t, end=" ")
+    print("попыток", n)
+    num = num + n
+    nz = max(nz, n)
+
+print("наибольшее число попыток", nz)
+print("среднее число попыток", num / 10)
