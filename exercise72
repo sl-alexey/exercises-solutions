@@ -1,0 +1,21 @@
+"""
+Программа реализующая алгоритм игры Fizz-Buzz
+применительно к первым 100 числам
+"""
+
+num = int(input("Enter number: "))
+
+while num < 100:
+    num +=1
+    if num % 3 == 0:
+        if num % 5 == 0:
+             print(num, "Fizz-Buzz")
+        else:
+            print(num, "Fizz")
+    elif num % 5 == 0:
+        if num % 3 == 0:
+            print(num, "Fizz-Buzz")
+        else:
+            print(num, "Buzz")
+    else:
+        print(num)
