@@ -1,0 +1,47 @@
+"""
+Программа, реализующая код Цезаря
+А также обратное переобразование
+"""
+
+abc = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+ABC = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+
+text = input("Введите текст сообщения: ")
+val = int(input("Число символов для кодировки сообщения: "))
+slovo = ""
+
+for i in range(0, len(text)): 
+    if text[i] in abc:
+        for j in range(0, len(abc)):
+            if abc[j] == text[i]:
+                s = abc[(j+val) % 33]
+                slovo = slovo + s
+    elif text[i] in ABC:
+        for j in range(0, len(ABC)):
+            if ABC[j] == text[i]:
+                s = ABC[(j+val) % 33]
+                slovo = slovo + s
+    else:
+        slovo = slovo + text[i]
+            
+print(slovo)
+
+# обратное преобразование
+
+message = ""
+
+for i in range(0, len(slovo)): 
+    if slovo[i] in abc:
+        for j in range(0, len(abc)):
+            if abc[j] == slovo[i]:
+                s = abc[(j-val) % 33]
+                message = message + s
+    elif slovo[i] in ABC:
+        for j in range(0, len(ABC)):
+            if ABC[j] == slovo[i]:
+                s = ABC[(j-val) % 33]
+                message = message + s
+    else:
+        message = message + slovo[i]
+        
+print(message)
