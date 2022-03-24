@@ -1,1 +1,1 @@
-# exercises-solutions
+exercises-solutions
